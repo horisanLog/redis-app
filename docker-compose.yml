@@ -11,7 +11,12 @@ services:
     ports:
       - '3306:3306'
     command: --default-authentication-plugin=mysql_native_password
-
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - "./app/redis:/data"
   web:
     build:
       context: .
@@ -25,5 +30,6 @@ services:
     tty: true
     depends_on:
       - db
+      - redis
 volumes:
   mysql_volume:
