@@ -68,3 +68,6 @@ end
 
 gem 'redis'
 gem 'redis-rails'
+
+
+
